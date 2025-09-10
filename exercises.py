@@ -114,7 +114,9 @@ def file_overlap(path1, path2):
         - авторское решение занимает 3 строки
         - используйте логические операции для нахождения общих строк
     """
-    pass
+    with open(path1) as file1:
+        with open(path2) as file2:
+            return list(file1) and list(file2)
 
 def sort_modulo(lst):
     """ Сортирует список целых чисел по модулю
@@ -129,7 +131,7 @@ def sort_modulo(lst):
         - используйте встроенную функцию sorted в комбинации с lambda-функцией
         - авторское решение занимает 37 символов
     """
-    pass
+    return sorted(lst, key=lambda x: abs(x))
 
 def list_to_pow(n_begin, n_end, pow):
     """ Создайте словарь, ключами которого являются целые числа от n_begin до n_end включительно,
@@ -148,7 +150,7 @@ def list_to_pow(n_begin, n_end, pow):
     Указания: 
         - авторское решение занимает 51 символ
     """
-    pass
+    return {x: x**pow for x in range(n_begin, n_end + 1)}
 
 def numbers_sum():
     """ Запрашивает список целых чисел через стандартный поток в формате
@@ -166,4 +168,6 @@ def numbers_sum():
         - используйте оператор in для поиска по строке
         - авторское решение занимает 7 строк
     """
-    pass
+    nums_list_str = input().replace(',', ' ').split()
+    nums_list_int = [int(x) for x in nums_list_str]
+    return sum(nums_list_int)
