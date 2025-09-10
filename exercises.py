@@ -1,3 +1,5 @@
+from math import sqrt
+
 def reversed_list(lst):
     """ Переставляет элементы в списке в обратном порядке
 
@@ -25,7 +27,11 @@ def prime_number(num):
     Указания:
         - авторское решение занимает 4 строки
     """
-    pass
+    for divisor in range(2, int(sqrt(num)) + 1):
+        if num % divisor == 0:
+            return False
+    return True
+
 
 def longest_word(sentence):
     """ Находит самое длинное слово в предложении
@@ -42,7 +48,7 @@ def longest_word(sentence):
         - используйте функцию max
         - авторское решение занимает 37 символов
     """
-    pass
+    return max(sentence.split(), key=len)
 
 def is_duplicate(lst):
     """ Возвращает True, если в списке есть одинаковые элементы и False, если - нет
@@ -58,7 +64,7 @@ def is_duplicate(lst):
         - все объекты списка хэшируемые
         - авторское решение занимает 32 символа
     """
-    pass
+    return len(set(lst)) != len(lst)
 
 def number_conversion(num, base):
     """ Переводит число из указанной системы счисления в десятичную
@@ -74,7 +80,7 @@ def number_conversion(num, base):
         - используйте преобразование типов int, str
         - авторское решение занимает 25 символов
     """
-    pass
+    return int(str(num), base)
 
 def common_divisor(num1, num2):
     """ Находит наибольший общий делитель
@@ -88,7 +94,10 @@ def common_divisor(num1, num2):
     Указания:
         - авторское решение занимает 8 строк
     """
-    pass
+    for i in range(max(num1, num2), 1, -1):
+        if num1 % i == 0 and num2 % i == 0:
+            return i
+    return 1
 
 def file_overlap(path1, path2):
     """ Находит одинаковые строки в файлах
